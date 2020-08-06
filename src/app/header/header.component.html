@@ -1,0 +1,31 @@
+ <!-- <div class="div-container">
+    <img src="/assets/img/about/LOGO.png" class="logo"/>
+    <div class="div-tabs">
+        <app-features></app-features>
+    </div>
+</div>
+ -->
+
+ <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><img src="/assets/img/about/LOGO.png" class="logo"/></a>
+      </div>
+      <ul class="nav navbar-nav">
+          <ng-container  *ngFor="let menu of menuList">
+        <li *ngIf="menu.childList.length == 0" class="active"><a href="{{menu.url}}">{{menu.name}}</a></li>
+        <li *ngIf="menu.childList.length > 0" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="{{menu.url}}">
+            {{ menu.name }} <span class="caret"></span></a>
+          <ul class="dropdown-menu">              
+            <li *ngFor="let child of menu.childList"><a href="{{child.url}}">{{child.name}}</a></li>
+            <!-- <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li> -->
+          </ul>
+        </li>
+        <!-- <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li> -->
+    </ng-container>
+      </ul>
+    </div>
+  </nav>
